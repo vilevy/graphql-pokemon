@@ -1,10 +1,22 @@
 import React from 'react';
-import './App.css';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+
+import PokemonsContainer from './components/PokemonsContainer';
+
+import './app.css'
+
 
 function App() {
+  const client = new ApolloClient({
+    uri: 'https://graphql-pokemon.now.sh'
+  })
+
   return (
     <div className="App">
-      <h1>Pokemon GraphQL</h1>
+      <ApolloProvider client={client}>
+        <PokemonsContainer />
+      </ApolloProvider>
     </div>
   );
 }
