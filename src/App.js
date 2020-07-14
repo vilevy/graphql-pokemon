@@ -2,6 +2,10 @@ import React from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
+import PokemonsContainer from './components/PokemonsContainer';
+
+import './app.css'
+
 
 function App() {
   const client = new ApolloClient({
@@ -11,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <ApolloProvider client={client}>
-        <h1>Pokemon GraphQL</h1>
+        <PokemonsContainer />
       </ApolloProvider>
     </div>
   );
